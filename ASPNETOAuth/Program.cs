@@ -52,16 +52,10 @@ public class Program
             options.RequireHttpsMetadata = false;
 
             options.ResponseType = "code";
-            options.UsePkce = true;
 
             options.Scope.Add("profile");
             options.Scope.Add("offline");
             options.SaveTokens = true;
-
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                IssuerSigningKeys = jsonWebKeySet.GetSigningKeys()
-            };
         })
         ;
         var app = builder.Build();
